@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FirstController {
     @RequestMapping("/test")
     public String test(@RequestParam(value = "param",required = false) String paramStr){
-        String str = "修改 hello aliyun 当前时间：" + DateTime.now() + " 请求的参数是: " + paramStr;
+        String str = "修改2 hello aliyun 当前时间：" + DateTime.now() + " 请求的参数是: " + paramStr;
         System.out.println(str);
         return str;
     }
