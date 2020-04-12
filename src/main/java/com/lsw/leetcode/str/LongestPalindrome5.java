@@ -24,7 +24,9 @@ package com.lsw.leetcode.str;
 public class LongestPalindrome5 {
 
     public static void main(String[] args) {
-        String s = "iopsajhffgvrnyitusobwcxgwlwniqchfnssqttdrnqqcsrigjsxkzcmuoiyxzerakhmexuyeuhjfobrmkoqdljrlojjjysfdslyvckxhuleagmxnzvikfitmkfhevfesnwltekstsueefbrddxrmxokpaxsenwlgytdaexgfwtneurhxvjvpsliepgvspdchmhggybwupiqaqlhjjrildjuewkdxbcpsbjtsevkppvgilrlspejqvzpfeorjmrbdppovvpzxcytscycgwsbnmspihzldjdgilnrlmhaswqaqbecmaocesnpqaotamwofyyfsbmxidowusogmylhlhxftnrmhtnnljjhhcfvywsqimqxqobfsageysonuoagmmviozeouutsiecitrmkypwknorjjiaasxfhsftypspwhvqovmwkjuehujofiabznpipidhfxpoustquzyfurkcgmioxacleqdxgrxbldcuxzgbcazgfismcgmgtjuwchymkzoiqhzaqrtiykdkydgvuaqkllbsactntexcybbjaxlfhyvbxieelstduqzfkoceqzgncvexklahxjnvtyqcjtbfanzgpdmucjlqpiolklmjxnscjcyiybdkgitxnuvtmoypcdldrvalxcxalpwumfx";
+//        String s = "iopsajhffgvrnyitusobwcxgwlwniqchfnssqttdrnqqcsrigjsxkzcmuoiyxzerakhmexuyeuhjfobrmkoqdljrlojjjysfdslyvckxhuleagmxnzvikfitmkfhevfesnwltekstsueefbrddxrmxokpaxsenwlgytdaexgfwtneurhxvjvpsliepgvspdchmhggybwupiqaqlhjjrildjuewkdxbcpsbjtsevkppvgilrlspejqvzpfeorjmrbdppovvpzxcytscycgwsbnmspihzldjdgilnrlmhaswqaqbecmaocesnpqaotamwofyyfsbmxidowusogmylhlhxftnrmhtnnljjhhcfvywsqimqxqobfsageysonuoagmmviozeouutsiecitrmkypwknorjjiaasxfhsftypspwhvqovmwkjuehujofiabznpipidhfxpoustquzyfurkcgmioxacleqdxgrxbldcuxzgbcazgfismcgmgtjuwchymkzoiqhzaqrtiykdkydgvuaqkllbsactntexcybbjaxlfhyvbxieelstduqzfkoceqzgncvexklahxjnvtyqcjtbfanzgpdmucjlqpiolklmjxnscjcyiybdkgitxnuvtmoypcdldrvalxcxalpwumfx";
+        String s = "babad";
+//        System.out.println("s.substring(0,1) = " + s.substring(0, 1));
         String s1 = longestPalindrome(s);
         System.out.println(s1);
     }
@@ -35,7 +37,7 @@ public class LongestPalindrome5 {
      * @param s
      * @return
      */
-    public static String longestPalindrome(String s) {
+    public static String longestPalindrome2(String s) {
 
         int max = 0;
         String maxStr = "";
@@ -53,8 +55,41 @@ public class LongestPalindrome5 {
         return maxStr;
     }
 
+    public static String longestPalindrome(String s) {
+
+        int max = 0;
+        String maxStr = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            int left = i;
+            int right = i;
+            int len = 1;
+
+            while (left >= 0 && s.charAt(left) == s.charAt(i)) {
+                left--;
+                len++;
+            }
+            while (right < s.length() && s.charAt(right) == s.charAt(i)) {
+                right++;
+                len++;
+            }
+
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+                len = len + 2;
+            }
+
+            if (len > max) {
+                max = len;
+                maxStr = s.substring(left+1, right);
+            }
+        }
+        return maxStr;
+    }
+
     private static boolean isPalindrome(String str){
-        if (str.length() <= 0) {
+        if (str.length() <= 1) {
             return true;
         }
         char[] toCharArray = str.toCharArray();
