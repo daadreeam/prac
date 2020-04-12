@@ -1,0 +1,8 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: daadreeam-test-app
+  mvc:
+    async:
+      request-timeout: 10000
