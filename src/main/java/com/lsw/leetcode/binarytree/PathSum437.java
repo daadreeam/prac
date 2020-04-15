@@ -1,4 +1,5 @@
 package com.lsw.leetcode.binarytree;
+import com.lsw.leetcode.binarytree.TreeUtil.*;
 
 public class PathSum437 {
     // 思路 1。递归
@@ -13,16 +14,8 @@ public class PathSum437 {
         return 0;
     }
 
-    public static TreeNode buildTree(TreeNode root, int[] nodeList){
+    public static TreeUtil.TreeNode buildTree(TreeNode root, int[] nodeList){
         return null;
     }
 }
 
- class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode(int x) {
-         val = x;
-     }
- }
