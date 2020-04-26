@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@ServletComponentScan
 @Slf4j
+//@EnableAspectJAutoProxy // 这个注解可以不加
 public class PracApplication {
 
     public static void main(String[] args) {
