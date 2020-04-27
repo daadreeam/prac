@@ -12,6 +12,6 @@ public class FirstController {
     ,@RequestParam(value = "param2", required = false) String param2){
         String str = "修改4 hello aliyun 当前时间：" + DateTime.now() + " 请求的参数是: " + paramStr;
         System.out.println(str);
-        return "做成它吧 少年！ " + str;
+        return "做成它吧 少年！ " + str + "  🐶大笨蛋";
     }
 }
